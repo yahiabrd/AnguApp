@@ -1,6 +1,6 @@
 Simple Front-end Angular app
 
-The Back-end app is done with ExpressJS
+The Back-end app is done with ExpressJS (https://github.com/yahiabrd/ExpressApp)
 
 Features : 
 - Home page
