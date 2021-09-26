@@ -8,6 +8,7 @@ Features :
 - Logout
 - Profile
 - User's model
+- CRUD UI (Add user, update user, delete user, get all users/user by email id)
 - Secure authentification
 - Auth, Token, Users Services
 
