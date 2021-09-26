@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
 import { UsersService } from '../service/users.service';
+import { SHA1 as sha1 } from 'crypto-js';
 
 @Component({
   selector: 'app-login',
@@ -30,7 +31,7 @@ export class LoginComponent implements OnInit {
 
   login(){
     this.email = String(this.loginForm.get('email')?.value); 
-    this.password = String(this.loginForm.get('password')?.value); 
+    this.password = String(sha1(this.loginForm.get('password')?.value)); 
     this.userService.login(this.email, this.password).subscribe(
       res => {
         localStorage.setItem('token', res.token)
