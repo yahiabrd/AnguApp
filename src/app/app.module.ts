@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TestsComponent } from './tests/tests.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
@@ -19,7 +18,6 @@ import { TokenInterceptorService } from './service/token-interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
-    TestsComponent,
     HomeComponent,
     ProfileComponent,
     LoginComponent,
