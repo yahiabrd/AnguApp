@@ -120,15 +120,15 @@ export class HomeComponent implements OnInit {
     this.showUpdateSection = false;
     this.addUserForm.reset()
 
-    this.userService.deleteUser(user.email).subscribe(
-      success => {
-        this.refreshUser()
-        this.successMsg = "The user " + user.email + " has been deleted"
-      },
-      err => {
-        console.log(err)
+    this.userService.deleteUser(user.email).subscribe();
+
+    for (let index = 0; index < this.users.length; index++) {
+      if(this.users[index].email == user.email) {
+        this.users.splice(index, 1);
       }
-    )
+    }
+
+    this.successMsg = "User successfully deleted";
   }
 
 

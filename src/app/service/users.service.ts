@@ -3,37 +3,38 @@ import {HttpClient} from '@angular/common/http'
 
 import {User} from '../models/user.model'
 import { Observable } from 'rxjs';
+import { UserDTO } from '../models/userDTO.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
 
-  private usersUrl = 'http://localhost:3000/users'
+  private userUrl = 'http://localhost:8081'
 
   constructor(private http:HttpClient) { }
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.usersUrl)
+    return this.http.get<User[]>(this.userUrl + '/users')
   }
 
   addUser(user:User) : Observable<User> {
-    return <Observable<User>> this.http.post(this.usersUrl + "/add", user)
+    return <Observable<User>> this.http.post(this.userUrl + "/user/add", user)
   }
 
   deleteUser(email:string) : Observable<User> {
-    return <Observable<User>> this.http.delete(this.usersUrl + "/delete/" + email)
+    return <Observable<User>> this.http.delete(this.userUrl + "/user/delete/" + email)
   }
 
   updateUser(user:User) : Observable<User> {
-    return <Observable<User>> this.http.put(this.usersUrl + "/update", user)
+    return <Observable<User>> this.http.put(this.userUrl + "/user/update", user)
   }
 
   getUser(email:string) : Observable<User> {
-    return this.http.get<User>(this.usersUrl + "/get/" + email)
+    return this.http.get<User>(this.userUrl + "/user/email/" + email)
   }
 
-  login(e:string, p:string) : Observable<any>{
-    return this.http.post(this.usersUrl + "/login", {email:e, password:p})
+  login(userDTO:UserDTO) : Observable<any>{
+    return this.http.post(this.userUrl + "/user/login", userDTO);
   }
 }
