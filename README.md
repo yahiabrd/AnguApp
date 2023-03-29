@@ -9,7 +9,7 @@ Features :
 - Profile
 - User's model
 - CRUD UI (Add user, update user, delete user, get all users/user by email id)
-- Secure authentification
+- Secure authentication
 - Auth, Token, Users Services
 
 
